@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>部屋名前:</strong>
+  <%= @room.title %>
+</p>
+
+<p>
+  <strong>部屋紹介文:</strong>
+  <%= @room.intro %>
+</p>
+
+<p>
+  <strong>金額:</strong>
+  <%= @room.price %>
+</p>
+
+<p>
+  <strong>住所:</strong>
+  <%= @room.address %>
+</p>
+
+
+<p>
+  <%= image_tag @room.room_image.thumb.url %>
+</p>
+
+<!--<img src="<%= @room.room_image %>" width="100">-->
+
+<p>
+  <strong>User:</strong>
+  <%= @room.user_id %>
+</p>
+
+<%= link_to '編集', edit_room_path(@room) %> |
+<%= link_to '戻る', rooms_path %>

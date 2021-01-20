@@ -1,6 +1,11 @@
 
-<div class="content-body">
-    <main class="content">Content</main>
-    <nav class="sidenav">Nav</nav>
-    <aside class="ads">Ads</aside>
-  </div>
+<%= link_to '部屋一覧', :rooms %>
+<%= search_form_for @search do |f| %>
+  <%= f.label :title_or_intro_or_address, "フリーワード検索" %>
+  <%= f.search_field :title_or_intro_or_address_cont   %>
+  <%= f.submit %>
+  
+  <%= f.label :price %>
+  <%= f.number_field :price_gteq %>以上〜
+  <%= f.number_field :price_lt %>未満
+<% end %>

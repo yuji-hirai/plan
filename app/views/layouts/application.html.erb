@@ -12,8 +12,18 @@
 
   <body>
     <div class="container">
-  <header class="header">Header</header>
-   <%= yield %>
+  <header class="header">
+    Header
+    <%= link_to 'トップページ', "/" %>
+    </header>
+  <div class="content-body">
+    <main class="content">
+      <%= yield %>
+      </main>
+    <nav class="sidenav">Nav</nav>
+    <aside class="ads">Ads</aside>
+  </div>
+   
   <footer class="footer">Footer</footer>
 </div>
    
