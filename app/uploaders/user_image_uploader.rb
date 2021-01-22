@@ -1,7 +1,7 @@
-class RoomImageUploader < CarrierWave::Uploader::Base
+class UserImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -38,21 +38,13 @@ class RoomImageUploader < CarrierWave::Uploader::Base
   # def extension_whitelist
   #   %w(jpg jpeg gif png)
   # end
+  version :thumb do
+    process resize_to_fit: [100, 100]
+  end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
   #   "something.jpg" if original_filename
   # end
-
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # minimagickを使うため
-  include CarrierWave::MiniMagick
-
-  # サムネイルの為に画像をリサイズ
-
-  version :thumb do
-    process resize_to_fit: [100, 100]
-  end
 end

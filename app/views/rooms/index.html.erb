@@ -1,15 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-
-<%= search_form_for @search do |f| %>
-  <%= f.label :title_or_intro_or_address, "フリーワード検索" %>
-  <%= f.search_field :title_or_intro_or_address_cont   %>
-  <%= f.submit %>
-  
-  <%= f.label :price %>
-  <%= f.number_field :price_gteq %>以上〜
-  <%= f.number_field :price_lt %>未満
-<% end %>
+<%= render "shared/search" %>
 
 <h1>お部屋一覧</h1>
 

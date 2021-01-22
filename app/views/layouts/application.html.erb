@@ -15,9 +15,26 @@
   <header class="header">
     Header
     <%= link_to 'トップページ', "/" %>
+    
+    <% if user_signed_in? %>
+     <h2> 現在 <%= current_user.name %> さんがログインしています </h2>
+     <%= current_user.comment %>
+        
+
+    <% else %>
+     <h2> 現在ログインしていません </h2>
+    <% end %>
+    
     </header>
   <div class="content-body">
     <main class="content">
+     <% if notice %>
+　　  <p><%= notice %></p>
+     <% end %>
+     <% if alert %>
+      <p><%= alert %></p>
+     <% end %>
+          
       <%= yield %>
       </main>
     <nav class="sidenav">Nav</nav>

@@ -5,9 +5,8 @@ class RoomsController < ApplicationController
   # GET /rooms.json
   def index
     # @rooms = Room.all
-  @search = Room.ransack(params[:q])
-  @rooms = @search.result
-    
+    @search = Room.ransack(params[:q])
+    @rooms = @search.result(distinct: true).order(created_at: 'DESC')
   end
 
   # GET /rooms/1
@@ -65,13 +64,14 @@ class RoomsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_room
-      @room = Room.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def room_params
-      params.require(:room).permit(:title, :intro, :price, :address, :room_image, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_room
+    @room = Room.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def room_params
+    params.require(:room).permit(:title, :intro, :price, :address, :room_image, :user_id)
+  end
 end

@@ -1,0 +1,11 @@
+<%= search_form_for @search do |f| %>
+  <%= f.label :title_or_intro_or_address, "フリーワード検索" %>
+  <%= f.search_field :title_or_intro_or_address_cont, placeholder: 'キーワードを入力'%>
+  <%= f.submit %>
+  
+  <%= tag.br %>
+  
+  <%= f.label :price %>
+  <%= f.number_field :price_gteq, placeholder: '下限金額'  %>以上〜
+  <%= f.number_field :price_lt, placeholder: '上限金額' %>未満
+<% end %>

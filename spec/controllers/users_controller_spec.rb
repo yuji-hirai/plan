@@ -1,10 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe HomeController, type: :controller do
-  describe "GET #top" do
+RSpec.describe UsersController, type: :controller do
+
+  describe "GET #show" do
     it "returns http success" do
-      get :top
+      get :show
       expect(response).to have_http_status(:success)
     end
   end
+
 end
