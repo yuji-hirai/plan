@@ -1,10 +1,9 @@
 <%= form_with(model: @reservation) do |form| %>
   <% if @reservation.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(reservation.errors.count, "項目のエラーがあります") %> </h2>
-
+      <h2><%= pluralize(@reservation.errors.count, "項目のエラーがあります") %> </h2>
       <ul>
-        <% reservation.errors.each do |error| %>
+        <% @reservation.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -29,7 +28,7 @@
   
   
 　<%= form.hidden_field :user_id, value: current_user.id %>
-
+　<%= form.hidden_field :room_id, value: @reservation.room_id %>
 　
   <div class="actions">
     <%= form.submit %>

@@ -12,8 +12,14 @@ Rails.application.routes.draw do
 
   resources :rooms do
    resources :reservations
-  end
+   # collection do
+   #    post :confirm
+   #  end
+   end
+ 
   
+ post '/reservations' => 'reservations#index' 
+ get '/reservations' => 'reservations#index' 
   get '/' => "home#top"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

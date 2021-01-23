@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
   def index
     @user = User.find(current_user.id)
+    @room = Room.new
     @rooms = @user.rooms
   end
 end
