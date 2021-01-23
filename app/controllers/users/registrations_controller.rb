@@ -8,9 +8,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def new
   #   super
   # end
-def show
-  @user = User.find(params[:id])
-end
+  def show
+    @user = User.find(params[:id])
+  end
   # POST /resource
   # def create
   #   super

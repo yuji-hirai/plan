@@ -3,10 +3,4 @@
 
 <%= link_to '広島',rooms_path(q:{address_cont:'広島'})%>
 <%= tag.br  %>
-<% if user_signed_in? %> 
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-  <%= link_to "マイページ","/users/#{current_user.id}" %>
-<% else %>
-  <%= link_to "ログイン", new_user_session_path, class: 'post' %> 
-  <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
-<% end %>
+<%= link_to '部屋登録', new_room_path %>

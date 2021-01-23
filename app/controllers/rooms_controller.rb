@@ -7,11 +7,14 @@ class RoomsController < ApplicationController
     # @rooms = Room.all
     @search = Room.ransack(params[:q])
     @rooms = @search.result(distinct: true).order(created_at: 'DESC')
+    
   end
 
   # GET /rooms/1
   # GET /rooms/1.json
   def show
+    @user = User.find(@room.user_id)
+   
   end
 
   # GET /rooms/new

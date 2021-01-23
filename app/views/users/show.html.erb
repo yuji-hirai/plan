@@ -10,7 +10,9 @@
 
 <p>
   <strong>画像:</strong>
+  <% if current_user.user_image.thumb.url%>
   <%= image_tag current_user.user_image.thumb.url %>
+  <% end %>
 </p>
 
 <p>
