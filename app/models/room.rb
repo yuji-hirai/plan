@@ -7,5 +7,4 @@ class Room < ApplicationRecord
   validates :room_image, presence: { message: "を選択してください" }
   belongs_to :user
   has_many :reservations
-
 end

@@ -9,6 +9,10 @@ ja:
         price: 金額
         address: 住所
         room_image: 部屋の画像
+      reservation:
+        start_day: 開始日
+        end_day: 終了日
+        number: 人数
       user:
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
@@ -144,6 +148,9 @@ ja:
       already_confirmed: は既に登録済みです。ログインしてください。
       confirmation_period_expired: の期限が切れました。%{period} までに確認する必要があります。 新しくリクエストしてください。
       expired: の有効期限が切れました。新しくリクエストしてください。
+      not_found: は見つかりませんでした。
+      Start day: は見つかりませんでした。
+      not_found: は見つかりませんでした。
       not_found: は見つかりませんでした。
       not_locked: はロックされていません。
       not_saved:

@@ -37,33 +37,40 @@
 
 <% if current_user.id.to_i != @user.id.to_i %>
 
-    <%= link_to '予約する',  "/rooms/#{@room.id}/reservations/new"%>
+<%
+=begin %>
+
+<%= link_to '予約する',  "/rooms/#{@room.id}/reservations/new"%>
+
+<%
+=end 
+%> 
   
-  <!--<%= form_for [@room, @room.reservations.new] do |form| %>-->
+  <%= form_for [@room, @room.reservations.new] do |form| %>
    
   
-  <!--  <div class="field">-->
-  <!--    <%= form.label :start_day, "開始日"%>-->
-  <!--    <%= form.date_field :start_day ,placeholder:"部屋の名前を入力"%>-->
-  <!--  </div>-->
+    <div class="field">
+      <%= form.label :start_day, "開始日"%>
+      <%= form.date_field :start_day ,placeholder:"部屋の名前を入力"%>
+    </div>
   
-  <!--  <div class="field">-->
-  <!--    <%= form.label :end_day, "終了日" %>-->
-  <!--    <%= form.date_field :end_day ,placeholder:"部屋説明を入力"%>-->
-  <!--  </div>-->
+    <div class="field">
+      <%= form.label :end_day, "終了日" %>
+      <%= form.date_field :end_day ,placeholder:"部屋説明を入力"%>
+    </div>
   
-  <!--  <div class="field">-->
-  <!--    <%= form.label :number, "人数" %>-->
-  <!--    <%= form.number_field :number ,placeholder:"人数"%>-->
-  <!--  </div>-->
+    <div class="field">
+      <%= form.label :number, "人数" %>
+      <%= form.number_field :number ,placeholder:"人数"%>
+    </div>
   
     
     
-  <!--　<%= form.hidden_field :user_id, value: current_user.id %>-->
-  <!--　<%= form.hidden_field :room_id, value: @room.id %>-->
+  　<%= form.hidden_field :user_id, value: current_user.id %>
+  　<%= form.hidden_field :room_id, value: @room.id %>
   　
-  <!--  <div class="actions">-->
-  <!--    <%= form.submit %>-->
-  <!--  </div>-->
-  <!--<% end %>-->
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
 <%end%>

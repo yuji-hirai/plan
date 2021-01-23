@@ -17,7 +17,7 @@ Rails.application.routes.draw do
    #  end
    end
  
-  
+delete '/reservations' => 'reservations#destroy' 
  post '/reservations' => 'reservations#index' 
  get '/reservations' => 'reservations#index' 
   get '/' => "home#top"

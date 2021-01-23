@@ -11,20 +11,23 @@ class ReservationsController < ApplicationController
  
     
   def create
-      @reservation = Reservation.new(reservation_params)
-      if @reservation.save
-        redirect_to reservations_path
-      else
+    @reservation = Reservation.new(reservation_params)
+    if @reservation.save
+      flash[:notice] = "ユーザーを新規登録しました"
+      redirect_to reservations_path
+    else
+      
       render "new"
-      end
+    end
   end
   
   def edit
   end
+  
   def destroy
     @reservation.destroy
     respond_to do |format|
-      format.html { redirect_to reservations_url, notice: '部屋情報を削除しました' }
+      format.html { redirect_to :reservations, notice: '部屋情報を削除しました' }
       format.json { head :no_content }
     end
   end
