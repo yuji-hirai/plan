@@ -1,0 +1,32 @@
+<h3>予約済みのへや</h3>
+<table>
+  <thead>
+    <tr></tr>
+      <th>ユーザー名</th>
+      <th>部屋名</th>
+      <th>人数</th>
+       <th>宿泊日数</th>
+      <th>金額 </th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <% @reservations.each do |reservation| %>
+    <tbody>
+      <tr>
+        <td><%= reservation.user.name%></td>
+        <td><%= reservation.room.title%></td>
+        <td><%= reservation.number%><span>名</span></td>
+        <td><%= reservation.number.to_i * reservation.room.price.to_i %> <span>日</span></td>
+        <td><%= reservation.number.to_i * reservation.room.price.to_i * (reservation.end_day - reservation.start_day + 1).to_int%> <span>円</span></td>
+        <td><%= reservation.start_day %></td>
+        <td><%= reservation.end_day%></td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
+
+
+

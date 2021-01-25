@@ -1,4 +1,44 @@
-/*
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  flex: 0 0 50px;
+}
+
+.content-body {
+  flex: 1 1 auto;
+  
+  display: flex;
+  flex-direction: row;
+}
+
+.content-body .content {
+  flex: 1 1 auto;
+  overflow: auto;
+}
+
+.content-body .sidenav {
+  order: -1;
+  flex: 0 0 100px;
+  overflow: auto;
+}
+
+.content-body .ads {
+  flex: 0 0 100px;
+  overflow: auto;
+}
+
+.footer {
+  flex: 0 0 50px;
+}/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *

@@ -1,0 +1,76 @@
+
+
+<p>
+  <strong>部屋名前 :</strong>
+  <%= @room.title %>
+</p>
+
+<p>
+  <strong>部屋の紹介文:</strong>
+  <%= @room.intro %>
+</p>
+
+<p>
+  <strong>金額:</strong>
+  <%= @room.price %>
+</p>
+
+<p>
+  <strong>住所:</strong>
+  <%= @room.address %>
+</p>
+
+
+<p>
+  <%= image_tag @room.room_image.thumb.url %>
+</p>
+
+
+
+<p>
+  <strong>オーナー:</strong>
+  <%= @user.name %>
+</p>
+
+<%= link_to '編集', edit_room_path(@room) %> |
+<%= link_to '戻る', rooms_path %>
+
+<% if current_user.id.to_i != @user.id.to_i %>
+
+<%
+=begin %>
+
+<%= link_to '予約する',  "/rooms/#{@room.id}/reservations/new"%>
+
+<%
+=end 
+%> 
+  
+  <%= form_for [@room, @room.reservations.new] do |form| %>
+   
+  
+    <div class="field">
+      <%= form.label :start_day, "開始日"%>
+      <%= form.date_field :start_day ,placeholder:"部屋の名前を入力"%>
+    </div>
+  
+    <div class="field">
+      <%= form.label :end_day, "終了日" %>
+      <%= form.date_field :end_day ,placeholder:"部屋説明を入力"%>
+    </div>
+  
+    <div class="field">
+      <%= form.label :number, "人数" %>
+      <%= form.number_field :number ,placeholder:"予約人数"%>
+    </div>
+  
+    
+    
+  　<%= form.hidden_field :user_id, value: current_user.id %>
+  　<%= form.hidden_field :room_id, value: @room.id %>
+  　
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+<%end%>

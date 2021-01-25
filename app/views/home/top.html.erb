@@ -1,0 +1,6 @@
+<%= link_to '部屋一覧', :rooms %>
+<%= render "shared/search" %>
+
+<%= link_to '広島',rooms_path(q:{address_cont:'広島'})%>
+<%= tag.br  %>
+<%= link_to '部屋登録', new_room_path %>

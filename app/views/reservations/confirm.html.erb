@@ -1,0 +1,11 @@
+<%= form_for @reservation do |f| %>
+  <%= @reservation.start_day %>
+  <%= @reservation. end_day%>
+  <%= @reservation. number%>
+  <div class="actions">
+    <%= f.submit '投稿画面に戻る', name: 'back' %>
+  </div>
+  <div class="actions">
+    <%= f.submit '投稿する' %>
+  </div>
+<% end %>

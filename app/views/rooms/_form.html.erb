@@ -1,0 +1,44 @@
+<%= form_with(model: room) do |form| %>
+  <% if room.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(room.errors.count, "項目のエラーがあります") %> </h2>
+
+      <ul>
+        <% room.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title, "部屋名前"%>
+    <%= form.text_field :title ,placeholder:"部屋の名前を入力"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :intro, "部屋紹介文" %>
+    <%= form.text_area :intro ,placeholder:"部屋説明を入力"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :price, "金額" %>
+    <%= form.number_field :price ,placeholder:"一日あたりの使用料金を入力"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :address, "住所" ,placeholder:"住所を入力"%>
+    <%= form.text_area :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :room_image, "画像" %>
+    <%= form.file_field :room_image %>
+  </div>
+  
+　<%= form.hidden_field :user_id, value: current_user.id %>
+　
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
